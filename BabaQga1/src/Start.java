@@ -65,6 +65,17 @@ public  class Start extends JPanel {
     }
 
     /**
+     * Syobshtenie pri pobeda
+     */
+    public static void finishWinner()
+    {
+        int a=JOptionPane.showConfirmDialog(null,"You Win. Another game?");
+        if(a==JOptionPane.YES_OPTION){
+            refresh();
+        }
+    }
+
+    /**
      * Obnovqva dyskata
      */
     private static void refresh() {
@@ -74,6 +85,18 @@ public  class Start extends JPanel {
         enterBabaQgaHouse();
         addElements(gs, true);
 
+
+    }
+
+    /**
+     * Syobshtenie pri zaguba
+     */
+    public static void finishLoser()
+    {
+        int a=JOptionPane.showConfirmDialog(null,"You Lose. Another game?");
+        if(a==JOptionPane.YES_OPTION){
+            refresh();
+        }
 
     }
 
