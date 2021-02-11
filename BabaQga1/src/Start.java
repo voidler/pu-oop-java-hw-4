@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.util.Random;
 
 public  class Start extends JPanel {
@@ -159,7 +160,8 @@ public  class Start extends JPanel {
         frame.setBackground(Color.black);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
+        Component mouseClick = new MouseController()  ;
+        frame.addMouseListener((MouseListener) mouseClick);
     }
 
     /**
@@ -232,6 +234,20 @@ public  class Start extends JPanel {
      * Syzdava kvadratcheto ot koeto startira igrata
      */
     private static void createStart () {
-        scheme_array[0][7] = new Scheme(0, 0, 0, 0, new StartCoordinates(Color.yellow));
+        //scheme_array[0][7] = new Scheme(0, 0, 0, 0, new StartCoordinates(Color.yellow));
+        Random rand = new Random();
+        int random = rand.nextInt(4);
+
+        switch (random) {
+            case 0: scheme_array[0][7] = new Scheme(0,0,0,0 , new StartCoordinates(Color.yellow));
+                    break;
+            case 1: scheme_array[7][0] = new Scheme(0,0,0,0 , new StartCoordinates(Color.yellow));
+                break;
+            case 2: scheme_array[7][7] = new Scheme(0,0,0,0 , new StartCoordinates(Color.yellow));
+                break;
+            case 3: scheme_array[0][0] = new Scheme(0,0,0,0 , new StartCoordinates(Color.yellow));
+                break;
+        }
+
     }
 }
